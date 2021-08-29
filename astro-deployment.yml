@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astro-villa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: astro-villa
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: astro-villa
+        tier: frontend
+    spec:
+      containers:
+        - name: astro-villa
+          image: learnitguide/knotejs:1.0
+          ports:
+            - containerPort: 3000
